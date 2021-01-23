@@ -1,0 +1,8 @@
+---
+
+- name: Change user password
+  become: yes
+  user:
+    name: "{{ user }}"
+    update_password: always
+    password: "{{ newpassword|password_hash('sha512') }}"
